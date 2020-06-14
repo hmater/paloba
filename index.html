@@ -1,0 +1,1806 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			user-select: none;
+      color: white;
+		}
+    body{
+      background-color: black;
+      overflow: hidden;
+    }
+		#container{
+			width: 1200px;
+			height: 720px;
+			/*border: solid 1px grey;*/
+			margin: auto auto;
+			/*padding: 10px;*/
+      overflow: hidden;
+		}
+    #btn_pao{
+      position: absolute;
+      /*padding: 10px;*/
+    }
+		.letra-element{
+			width: 100px;
+			height: 100px;
+			/*background: red;*/
+			font-weight: bolder;
+			font-size: 75px;
+			font-family: Courier;
+			text-align: center;
+			border-radius: 100px;
+			float: left;
+			transform:scaleY(1.2);
+
+			/*margin: 10px;*/
+		}
+		.color-element{
+			width: 150px;/*150   200*/
+			height: 150px;/*150   200*/
+			/*background: red;*/
+			border-radius: 150px; /*150   200*/
+			float: left;
+			margin: 180px 45px; /* 180px 45px     180px 20px*/
+		}
+		/*.color-element:hover{
+			box-shadow: 0px 0px 20px 5px orange;
+		}*/
+		#Rojo{
+			background: red;
+		}
+		#Azul{
+			background: blue;
+		}
+		#Amarillo{
+			background: yellow;
+		}
+		#Negro{
+			background: black;
+		}
+    #Blanco{
+      background: white;
+    }
+		#Verde{
+			background: green;
+		}
+		.label{
+			margin-top: 200px; /*200px    230px*/
+			text-align: center;
+			font-family: sans-serif;
+			font-weight: 600;
+      color:white !important; 
+		}
+		.bottomtext{
+			float: 	left;
+			margin-top: 50px; /* 50px    0px*/
+			width: 100%;
+			text-align: center;
+			font-family: sans-serif;
+			font-weight: 600;
+			font-size: 50px;
+			color: 	white !important; /*#444*/
+			pointer-events: none;
+		}
+		#resultado{
+			margin-top: 20px;
+			font-size: 30px;
+			color: 	#666;
+		}
+
+		.absolutebox{
+			position: absolute;
+			float: left;
+			width: 1200px;
+			/*border: 1px solid blue;*/
+		}
+		#box2{
+			margin-top: 60px;
+			margin-left: 60px;
+			width: 1100px;
+		}
+
+/*=========================================*/
+/*================ SHAPES =================*/
+/*=========================================*/
+
+    #Cuadrado {
+      width: 150px;
+      height: 150px;
+      background: red;
+    }
+    #Circulo {
+      width: 150px;
+      height: 150px;
+      background: red;
+      border-radius: 50%
+    }
+    #Triangulo {
+      width: 0;
+      height: 0;
+      border-left: 75px solid transparent;
+      border-right: 75px solid transparent;
+      border-bottom: 150px solid red;
+    }
+  	 #Estrella {
+      margin: 50px -20px;
+      position: relative;
+      display: block;
+      color: red;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid red;
+      border-left: 100px solid transparent;
+      transform: rotate(35deg);
+      zoom: 90%;
+    }
+    #Estrella:before {
+      border-bottom: 80px solid red;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      position: absolute;
+      height: 0;
+      width: 0;
+      top: -45px;
+      left: -65px;
+      display: block;
+      content: '';
+      transform: rotate(-35deg);
+    }
+    #Estrella:after {
+      position: absolute;
+      display: block;
+      color: red;
+      top: 3px;
+      left: -105px;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid red;
+      border-left: 100px solid transparent;
+      transform: rotate(-70deg);
+      content: '';
+    }
+  
+    #Pentagono {
+      position: relative;
+      width: 54px;
+      box-sizing: content-box;
+      border-width: 50px 18px 0;
+      border-style: solid;
+      border-color: red transparent;
+    }
+    #Pentagono:before {
+      content: "";
+      position: absolute;
+      height: 0;
+      width: 0;
+      top: -85px;
+      left: -18px;
+      border-width: 0 45px 35px;
+      border-style: solid;
+      border-color: transparent transparent red;
+    }
+  	#Cruz {
+      background: red;
+      height: 150px;
+      position: relative;
+      width: 50px;
+      transform: rotate(45deg);
+      margin-right: 32%;
+    }
+    #Cruz:after {
+      background: red;
+      content: "";
+      height: 50px;
+      left: -50px;
+      position: absolute;
+      top: 50px;
+      width: 150px;
+    }
+    .figuras{
+    	float: right;
+    	/*margin: 100px;*/
+     }
+    .figcontainer{
+    	width: 150px;
+    	height: 150px;
+    	margin:0;
+    	/*border: solid 1px blue;*/
+    	float: left;
+    	margin-top: 175px;
+    	padding: 44px;
+    	border-radius: 50%;
+    }
+
+    .flecha{
+    	float: left;
+    	position: relative;
+		width: 0;
+		height: 0;
+		border-top: 25px solid transparent;
+		border-left: 50px solid white; /*antes eras negra*/
+		border-bottom: 25px solid transparent;
+	    margin-left: 100px;
+	    margin-top: 50px;
+	}
+	.flecha:after{
+      	background: white; /*antes eras negra*/
+      	content: "";
+      	height: 20px;
+      	left: -150px;
+      	position: absolute;
+      	top: -10px;
+      	width: 100px;
+	}
+	.flecha2{
+    	float: left;
+    	position: relative;
+		width: 0;
+		height: 0;
+		border-top: 25px solid transparent;
+		border-left: 50px solid red;
+		border-bottom: 25px solid transparent;
+	    margin-left: 100px;
+	    margin-top: 50px;
+	}
+	.flecha2:after{
+      	background: red;
+      	content: "";
+      	height: 20px;
+      	left: -150px;
+      	position: absolute;
+      	top: -10px;
+      	width: 100px;
+	}
+    #flechacontainer{
+    	float: left;
+    	width: 150px;
+    	height: 150px;
+    	padding: 0;
+    	margin: 0;
+    	margin-top: 210px;
+    	margin-left: 525px;
+    	pointer-events: none;
+    }
+    .absolutecircle{
+    	position: absolute;
+    	width: 100px;
+    	height: 100px;
+    	border-radius: 50%;
+    	background: red;
+    }
+    #circlescontainer{
+    	margin-left: 550px;
+    	margin-top: 235px;
+    	position: absolute;
+    }
+    #flecha2container{
+    	float: left;
+    	width: 150px;
+    	height: 150px;
+    	padding: 0;
+    	margin: 0;
+    	zoom: 0.60;
+    	margin: 5px;
+    }
+    #palabra{
+    	font-size: 200px;
+    	font-family: sans-serif;
+   		text-align: center;
+   		position: relative;
+   		margin-top:100px;
+      color:white;
+
+    }
+    .boton_color{
+    	width: 100px;
+    	height: 100px;
+    	border-radius: 50%;
+    	float: left;
+    	margin: 35px;
+    }
+    .num_opt{
+    	background: lightblue;
+    	width: 300px;
+    	height: 150px;
+    	border-radius: 50px;
+    	font-family: sans-serif;
+    	text-align:center;
+    	font-size: 50px;
+    	display: inline-block;
+    	margin: 50px;
+    	line-height: 150px;
+    }
+    .num_opt:hover{
+    	background: yellow;
+    }
+    .result_element{
+    	text-align: center;
+    	color: #666	;
+    	font-family: sans-serif;
+    	font-size: 75px;
+    	margin: 50px;
+    	/*font-weight: 100;*/
+    }
+    .title{
+    	font-size: 100px !important;
+    	font-weight: bold;
+    	margin-top: 100px !important;
+    	margin-bottom: 100px !important;
+    	color: white !important; /*#444*/
+    }
+    .cl_opt{
+		width: 150px;/*150   200*/
+		height: 150px;/*150   200*/
+		text-align: center;
+    	color: #666	;
+    	font-family: sans-serif;
+    	font-size: 75px;
+    	line-height: 150px;
+		border-radius: 150px; /*150   200*/
+		float: left;
+		margin: 50px 45px; /* 180px 45px     180px 20px*/
+    }
+    .selected{
+    	-webkit-box-shadow: inset 0px 0px 50px 10px rgba(255,227,115,1);
+		-moz-box-shadow: inset 0px 0px 50px 10px rgba(255,227,115,1);
+		box-shadow: inset 0px 0px 50px 10px rgba(255,227,115,1);
+    }
+    .ff{
+    	margin-top: 50px !important;
+    }
+    .fc{
+    	float: left;
+    	width: 150px;
+    	height: 150px;
+    	padding: 0;
+    	margin: 0;
+    	padding: 45px;
+    	border-radius: 50%;
+    }
+    .nums{
+    	float: left;
+    	width: 100px;
+    	height: 100px;
+    	border-radius: 50%;
+    	font-size: 70px;
+    	font-family: sans-serif;
+    	line-height: 100px;
+    	text-align: center;
+    	margin: 10px;
+    	margin-top: 50px;
+    	display: inline-block;
+    }
+    #screen{
+    	width: 100%;
+    	margin: auto auto;
+    	height: 480px;
+    	background-image: url('src/paloba.png');
+    	background-position: center center;
+    	background-repeat: no-repeat;
+    	background-size: 60%;
+    	/*filter: saturate(2);*/
+
+    }
+    .game_ico{
+    	width: 100px;
+    	height: 100px;
+    	border-radius: 50%;
+    	/*background: blue;*/
+    	float: left;
+    	margin: 10px;
+    	color: white;
+    	font-weight: 600;
+    	font-family: sans-serif;
+    	font-size: 70px;
+    	text-align: center;
+    	line-height: 100px;
+		-webkit-box-shadow: inset 0px 0px 0px 5px rgba(255,0,0,1);
+		-moz-box-shadow: inset 0px 0px 0px 5px rgba(255,0,0,1);
+		box-shadow: inset 0px 0px 0px 5px rgba(255,0,0,1);
+    }
+    .gray{
+    	color: gray !important;
+		-webkit-box-shadow: inset 0px 0px 0px 5px gray !important;
+		-moz-box-shadow: inset 0px 0px 0px 5px gray !important;
+		box-shadow: inset 0px 0px 0px 5px gray !important;
+    }
+    .brick{
+    	border-radius: 0 !important;
+    	margin: 0 !important;
+    	width: 240px !important;
+    }
+    .mtopzero{
+    	margin-top:0px !important;
+    }
+    .mbzero{
+    	margin-bottom: 0px !important;
+    }
+    .fixflechas{
+    	padding: 20px;
+    	margin: 25px;
+    	margin-top: 10px;
+    }
+
+    .palabraholder{
+    	color: white;
+    	display: inline-block;
+    	font-size: 70px;
+    	width: 370px;
+    	margin: 0 15px;
+    	text-align: center;
+    	font-family: sans-serif;
+    	font-weight: 700;
+    }
+    .enlighted{
+    	/*
+    	-webkit-box-shadow: inset 0px 0px 50px 10px pink;
+		-moz-box-shadow: inset 0px 0px 50px 10px pink;
+		box-shadow: inset 0px 0px 50px 10px pink;*/
+		background: pink;
+    }
+
+    .big_letra{
+    	font-size: 200px;
+    }
+    .textout{
+    	font-family: sans-serif;
+			font-weight: 600;
+			/*font-size: 50px;*/
+			color:white !important;  /*#444*/
+			pointer-events: none;
+    }
+    .text_boxes20{
+    	color:white !important;	/*#444*/
+    	font-family:arial;
+    	font-size:30px;
+    	text-align:center;
+    	float:left; 
+    	width:170px; 
+    	height:30px;
+    }
+    .imgs20{
+    	float:left; 
+    	width:170px; 
+    	height:170px; 
+    }
+
+    .btn{
+      width: 65px;
+      height: 8px;
+      cursor: pointer;
+      text-align: center;
+      margin: 3px;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 18px;
+      line-height: 10px;
+      transition: .3s;
+      -webkit-transition: .3s;
+      -moz-transition: .3s;
+      -o-transition: .3s;
+      display: inline-block;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+      }
+
+      .blue {
+        color: #55acee;
+        border: 2px #55acee solid;
+      }
+
+      .blue:hover {
+        background-color: #55acee;
+        color: #fff
+      }
+
+      .nblue{
+      	color: blue;
+      }
+    }
+	</style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// GENERAL CONTROL VARS
+var tries = 0;
+var wins = 0;
+var check_time;
+var ejercicio=0;
+//maxtries global vector, index == var ejercicio, intentionally left 0 index unused.
+var MaxTries = [0,10,10,10,10,10,20,10,10,10,10,10,10,10,10,20,20,18,27,27,14]; 
+
+
+//SPECIFIC CONTROL VARS
+var colorselect = "";
+var letraselect = "";
+var flechaselect="";
+var figselect="";
+var numselect="";
+
+var numeros = [];
+var fnums = [];
+for (i = 0; i < 10; i++) {
+	numeros[i]=i;
+}
+
+
+function colors(){
+	ejercicio=1;
+	set_time(5000);
+	var colors = ["Rojo","Azul","Amarillo","Blanco","Verde"];
+	var i;
+	var text = "";
+	var color;
+	shuffle(colors);
+	var consigna = colors[0];
+	shuffle(colors);
+	for (i = 0; i < 5; i++) {
+		color = colors.pop();
+	 	text += '<div id="'+color+'" class="color-element" onclick="checkcolor(this)"><p class="label">'+color+'</p></div>';
+	}
+	text += '<div class="bottomtext" id="consigna" title="'+consigna+'">Toca el circulo '+consigna+'</div>';
+	text += '<div class="bottomtext" id="resultado"></div>';
+	document.getElementById("container").innerHTML = text;
+}
+
+// =================== EJ. 2 FUERA DEL ESTANDAR ================== //
+var vocals2 = ["U","O","I","E","A","u","o","i","e","a"];
+var wins2 = 0;
+function letras_2(){
+	ejercicio=2;
+	set_time_2(30000); // 30 seg para hacer todo
+	var text="";
+	var abc = ["a","e","i","o","u","A","E","I","O","U",
+			   "b","c","d"," "," ","h"," "," "," ","m",
+			   " ","p"," ","r","s","t","v"," "," "," ",
+			   " ","B","C"," ","F"," "," "," ","K","L",
+			   "M","N"," ","S"," ","Y"," "," "," "," ",
+			   " "," "," "," "," "," "," "," "," "," "];
+	var colors = ["Red","Red","Yellow","Yellow","Olive","Lime","Green","Aqua","Teal","Blue","Navy","Fuchsia","Purple"];
+	shuffle(abc);
+	shuffle(colors);
+	for (var i = abc.length - 1; i >= 0; i--) {
+	text += '<div class="letra-element" data-letra="'+abc[i]+'" onclick="letras_controler(this)" style="color:'+colors[i%13]+';float:left; width:100px;height:100px">'+abc[i]+'</div>';
+		if(i%13==0){
+			shuffle(colors);
+		}
+	}
+
+	text += '<div class="bottomtext" style="margin-top:20px" id="consigna">Toca todas las vocales</div>';
+	text += '<div class="bottomtext" id="result" style="margin-top:10px;margin-left:100px">';
+	for (var i = vocals2.length - 1; i >= 0; i--) {
+		text += '<div class="letra-element" id="'+vocals2[i]+'" style="float:left; width:100px;height:100px"></div>';
+	}
+	text += '</div>';
+	document.getElementById("container").innerHTML = text;
+}
+
+function letras_controler(element){
+	var letra = element.getAttribute("data-letra");
+	var content = element.innerHTML;
+	if (vocals2.includes(letra)&content!=""){
+		element.innerHTML="";
+		document.getElementById(letra).innerHTML=letra;
+		wins2+=1;
+	}
+	if (wins2>=10){
+		results_2();
+	}
+
+}
+function set_time_2(time){
+	check_time = setTimeout(function(){ 
+		results_2();	
+	 }, time);
+}
+
+function results_2(){
+	reset_time();
+	text="";
+	text += '<div class="result_element title">Tus resultados</div>';
+	text += '<div class="result_element">Respuestas correctas: '+wins2+'</div>';
+	text += '<div class="result_element">Total de ejercicios: 10</div>';
+	document.getElementById("container").innerHTML = text;
+	tries=0;
+	wins=0;
+}
+// =================== FIN  EJ. 2  ================== //
+
+
+function figuras(){
+	ejercicio=3;
+	set_time(5000);
+	var colorstyle = [
+	"filter: hue-rotate(0deg)",/*Rojo*/
+	"filter: hue-rotate(120deg)", /* Verde*/ 
+	"filter: hue-rotate(225deg)", /*Azul*/
+	"filter: hue-rotate(50deg) brightness(500%)", /*Amarillo*/
+	"filter: hue-rotate(0deg) grayscale(100%) brightness(0%) invert(100%)"]; /*Blanco*/
+
+	var figuras = ["Triangulo","Cuadrado","Circulo","Cruz","Estrella"];
+	var i;
+	var text = "";
+	var color;
+	var figura;
+
+	shuffle(colorstyle);
+	shuffle(figuras);
+	var consigna = figuras[0];
+	shuffle(figuras);
+
+	text+='<div id="fig0" class="figcontainer"></div>';
+	text+='<div id="fig1" class="figcontainer"></div>';
+	text+='<div id="fig2" class="figcontainer"></div>';
+	text+='<div id="fig3" class="figcontainer"></div>';
+	text+='<div id="fig4" class="figcontainer"></div>';
+	document.getElementById("container").innerHTML = text;
+
+	for (i = 0; i < 5; i++) {
+		color = colorstyle.pop();
+		figura = figuras.pop();
+	 	document.getElementById("fig"+i).innerHTML = '<div id="'+figura+'" onclick="checkfigura(this)" class="figuras" style="'+color+'"></div>';
+	}
+	text = "";
+	text += '<div class="bottomtext" id="consigna" title="'+consigna+'">Toca la figura: '+consigna+'</div>';
+	text += '<div class="bottomtext" id="resultado"></div>';
+	document.getElementById("container").innerHTML += text;
+}
+
+function flechas(){
+	ejercicio=4;
+	set_time(5000);
+	var text = "";
+	var R=200;
+	var p=R/1.4142; // p=R/sqrt(2)
+	var colors = ["Red","Yellow","Green","Orange","Blue","Fuchsia"];
+	shuffle(colors);
+
+	document.getElementById("container").innerHTML = '<div id="circlescontainer"></div>';
+	text += '<div id="90"  class="absolutecircle" onclick="checkflechas(this)" style="background-color:'+colors[0]+'; transform:translate(0px,'+R+'px);"></div>'
+	text += '<div id="45"  class="absolutecircle" onclick="checkflechas(this)" style="background-color:'+colors[0]+';transform:translate('+p+'px,'+p+'px);"></div>'
+	text += '<div id="0"   class="absolutecircle" onclick="checkflechas(this)" style="background-color:'+colors[0]+';transform:translate('+R+'px,0px);"></div>'
+	text += '<div id="315" class="absolutecircle" onclick="checkflechas(this)" style="background-color:'+colors[0]+';transform:translate('+p+'px,-'+p+'px);"></div>'
+	text += '<div id="270" class="absolutecircle" onclick="checkflechas(this)" style="background-color:'+colors[0]+';transform:translate(0px,-'+R+'px);"></div>'
+	text += '<div id="225" class="absolutecircle" onclick="checkflechas(this)" style="background-color:'+colors[0]+';transform:translate(-'+p+'px,-'+p+'px);"></div>'
+	text += '<div id="180" class="absolutecircle" onclick="checkflechas(this)" style="background-color:'+colors[0]+';transform:translate(-'+R+'px,0px);"></div>'
+	text += '<div id="135" class="absolutecircle" onclick="checkflechas(this)" style="background-color:'+colors[0]+';transform:translate(-'+p+'px,'+p+'px);"></div>'
+	document.getElementById("circlescontainer").innerHTML = text;
+
+	var degs = [0,45,90,135,180,225,270,315];
+	shuffle(degs);
+	document.getElementById("container").innerHTML += '<div id="flechacontainer" title="'+degs[0]+'" style="transform:rotate('+degs[0]+'deg)"><div class="flecha"></div></div>';
+
+	text = "";
+	text += '<div class="bottomtext" id="consigna" style="margin-top:200px">Toca la figura que apunta la flecha</div>';
+	text += '<div class="bottomtext" id="resultado"></div>';
+	document.getElementById("container").innerHTML += text;
+}
+
+function palabra(){
+	ejercicio=5;
+	set_time(5000);
+	var colors = ["Red","Yellow","Green","Orange","Blue","Fuchsia","White"];
+	var palabras = ["Rojo","Amarillo","Verde","Naranja","Azul","Fucsia","Blanco"];
+	var consigna = "Toca el circulo del color que indica la PALABRA";
+
+	var text_btns = "";
+	for (i = 0; i < 7; i++) {
+	 	text_btns += '<div class="boton_color" data-color="'+palabras[i]+'" style="background-color:'+colors[i]+'" onclick="check_palabra(this)"></div>';
+	}
+	shuffle(palabras);
+	shuffle(colors);
+	var text="";
+	text += '<div id="palabra" data-color="'+palabras[0]+'" style="color:'+colors[0]+'">'+palabras[0]+'</div>'
+	text += '<div class="bottomtext" id="consigna" style="margin-top:100px">'+consigna+'</div>';
+	text += text_btns;
+	/*text += '<div class="boton_color" data-color="'+palabras[0]+'" style="color:'+colors[0]+'">'+palabras[0]+'</div>'*/
+	document.getElementById("container").innerHTML=text;
+}
+
+function numb(){
+	ejercicio=6;
+	set_time(5000);
+	if (fnums.length==0) {
+		fnums = [...numeros];
+	}
+	shuffle(fnums);
+	var num = fnums.pop();
+	var	text="";
+	text += '<div id="palabra" data-num="'+num+'" style="">'+num+'</div>';
+	text += '<div  id="consigna" style="margin-top:100px;text-align: center;"><div id="par" class="num_opt" onclick="checknumb(this)">PAR</div><div id="impar" class="num_opt" onclick="checknumb(this)">IMPAR</div></div>';
+	document.getElementById("container").innerHTML=text;
+}
+
+function letra_color(){
+	ejercicio=7;
+	set_time(7000);
+	colorselect = "";
+	letraselect = "";
+
+	var vocals = ["a","e","i","o","u"];
+	var colors = ["Red","Yellow","Green","Orange","Blue"];
+	var palabras = ["Rojo","Amarillo","Verde","Naranja","Azul"];
+
+	var text_lts = "";
+	var text_cls = "";
+
+	for (i = 0; i < 5; i++) {
+		text_lts += '<div class="cl_opt l_opt" data-letra="'+vocals[i]+'" onclick="select_letra(this)">'+vocals[i]+'</div>';
+	 	text_cls += '<div class="cl_opt c_opt" data-color="'+palabras[i]+'" style="background-color:'+colors[i]+'" onclick="select_color(this)"></div>';
+	}
+
+	shuffle(vocals);
+	shuffle(palabras);
+	var text_consigna = '<div id="consigna" class="bottomtext" data-letra="'+vocals[0]+'" data-color="'+palabras[0]+'">Toca la letra "'+vocals[0]+'" y el color '+palabras[0]+'</div>';
+
+	document.getElementById("container").innerHTML=text_lts+text_cls+text_consigna;
+}
+
+function fig_flecha(){
+	ejercicio=8;
+	set_time(7000);
+	flechaselect = "";
+	figselect = "";
+	var degs = [0,90,180,270,315];
+	//DRAW FIG
+	var colorstyle = [
+		"filter: hue-rotate(0deg)",/*Rojo*/
+		"filter: hue-rotate(120deg)", /* Verde*/ 
+		"filter: hue-rotate(225deg)", /*Azul*/
+		"filter: hue-rotate(50deg) brightness(500%)", /*Amarillo*/
+		"filter: brightness(0%) invert(100%)"]; /*Negro*/
+
+	var figuras = ["Triangulo","Cuadrado","Circulo","Cruz","Estrella"];
+	var i;
+	var text_fig = "";
+	var color;
+	var figura;
+
+	shuffle(colorstyle);
+	shuffle(figuras);
+	var fig_consigna = figuras[0];
+	shuffle(figuras);
+
+	text_fig+='<div id="fig0" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig1" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig2" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig3" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig4" class="figcontainer ff"></div>';
+	document.getElementById("container").innerHTML=text_fig;
+	for (i = 0; i < 5; i++) {
+		color = colorstyle.pop();
+		figura = figuras.pop();
+	 	document.getElementById("fig"+i).innerHTML = '<div id="'+figura+'" onclick="select_figura(this)" class="figuras" style="'+color+'"></div>';
+	}
+	shuffle(degs);
+	var deg_consigna=degs[0];
+	shuffle(degs);
+	var flecha_consigna;
+	if (deg_consigna==0)   flecha_consigna="la derecha";
+	if (deg_consigna==90)  flecha_consigna="abajo";
+	if (deg_consigna==180) flecha_consigna="la izquierda";
+	if (deg_consigna==270) flecha_consigna="arriba";
+	if (deg_consigna==315) flecha_consigna="la diagonal derecha";
+	var text_flecha="";
+	for (i = 0; i < 5; i++) {
+		text_flecha += '<div class="fc" onclick="select_flecha(this)" data-deg="'+degs[i]+'" style="transform:rotate('+degs[i]+'deg)"><div class="flecha"></div></div>';
+	}
+	document.getElementById("container").innerHTML+=text_flecha;
+
+	var text_consigna = '<div id="consigna" style="font-size:40px" class="bottomtext" data-fig="'+fig_consigna+'" data-deg="'+deg_consigna+'" data-cons="'+flecha_consigna+'">Toca la dirección hacia '+flecha_consigna+' y la fig. '+fig_consigna+'</div>';
+
+	document.getElementById("container").innerHTML+= text_consigna;
+}
+
+function num_fig(){
+	ejercicio=9;
+	set_time(7000);
+	numselect = "";
+	figselect = "";
+
+	var colorstyle = [
+		"filter: hue-rotate(0deg)",/*Rojo*/
+		"filter: hue-rotate(120deg)", /* Verde*/ 
+		"filter: hue-rotate(225deg)", /*Azul*/
+		"filter: hue-rotate(50deg) brightness(500%)", /*Amarillo*/
+		"filter: brightness(0%) invert(100%)"]; /*Blanco*/
+
+	var figuras = ["Triangulo","Cuadrado","Circulo","Cruz","Estrella"];
+	var i;
+	var text_fig = "";
+	var color;
+	var figura;
+
+	shuffle(colorstyle);
+	shuffle(figuras);
+	var fig_consigna = figuras[0];
+	shuffle(figuras);
+
+	text_fig+='<div id="fig0" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig1" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig2" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig3" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig4" class="figcontainer ff"></div>';
+	document.getElementById("container").innerHTML=text_fig;
+	for (i = 0; i < 5; i++) {
+		color = colorstyle.pop();
+		figura = figuras.pop();
+	 	document.getElementById("fig"+i).innerHTML = '<div id="'+figura+'" onclick="select_figura(this)" class="figuras" style="'+color+'"></div>';
+	}
+	var text_num="";
+	var nums=[]
+	for (i = 0; i < 10; i++) {
+		nums[i]=i;
+		document.getElementById("container").innerHTML += '<div id="num'+i+'" data-num="'+i+'" onclick="select_num(this)" class="nums">'+i+'</div>';
+	}
+	shuffle(nums);
+	num_consigna=nums[0];
+
+	var text_consigna = '<div id="consigna" style="" class="bottomtext" data-fig="'+fig_consigna+'" data-num="'+num_consigna+'">Toca la fig. '+fig_consigna+' y el número '+num_consigna+'</div>';
+
+	document.getElementById("container").innerHTML+= text_consigna;
+}
+
+function flecha_color(){
+	ejercicio=10;
+	set_time(7000);
+	flechaselect = "";
+	colorselect = "";
+
+	//DRAW COLORS
+	var colors = ["Red","Yellow","Green","Orange","Blue"];
+	var palabras = ["Rojo","Amarillo","Verde","Naranja","Azul"];
+	var text_cls = "";
+	for (i = 0; i < 5; i++) {
+	 	text_cls += '<div class="cl_opt c_opt" data-color="'+palabras[i]+'" style="background-color:'+colors[i]+'" onclick="select_color(this)"></div>';
+	}
+	document.getElementById("container").innerHTML=text_cls;
+	//DRAW FLECHAS
+	var degs = [0,90,180,270,315];
+	shuffle(degs);
+	var deg_consigna=degs[0];
+	shuffle(degs);
+	var flecha_consigna;
+	if (deg_consigna==0)   flecha_consigna="la derecha";
+	if (deg_consigna==90)  flecha_consigna="abajo";
+	if (deg_consigna==180) flecha_consigna="la izquierda";
+	if (deg_consigna==270) flecha_consigna="arriba";
+	if (deg_consigna==315) flecha_consigna="la diagonal derecha";
+	var text_flecha="";
+	for (i = 0; i < 5; i++) {
+		text_flecha += '<div class="fc" onclick="select_flecha(this)" data-deg="'+degs[i]+'" style="transform:rotate('+degs[i]+'deg)"><div class="flecha"></div></div>';
+	}
+	document.getElementById("container").innerHTML+=text_flecha;
+	//CONSIGNA
+	shuffle(palabras);
+	var text_consigna = '<div id="consigna" style="font-size:40px" class="bottomtext" data-color="'+palabras[0]+'" data-deg="'+deg_consigna+'" data-cons="'+flecha_consigna+'">Toca la dirección hacia <u>'+flecha_consigna+'</u> y el color <u>'+palabras[0]+'</u></div>';
+	document.getElementById("container").innerHTML+= text_consigna;
+}
+
+function color_num(){
+	ejercicio=11;
+	set_time(7000);
+	numselect = "";
+	colorselect = "";
+	//DRAW COLORS
+	var colors = ["Red","Yellow","Green","Orange","Blue"];
+	var palabras = ["Rojo","Amarillo","Verde","Naranja","Azul"];
+	var text_cls = "";
+	for (i = 0; i < 5; i++) {
+	 	text_cls += '<div class="cl_opt c_opt" data-color="'+palabras[i]+'" style="background-color:'+colors[i]+'" onclick="select_color(this)"></div>';
+	}
+	document.getElementById("container").innerHTML=text_cls;
+	//DRAW NUMBERS
+	var text_num="";
+	var nums=[]
+	for (i = 0; i < 10; i++) {
+		nums[i]=i;
+		document.getElementById("container").innerHTML += '<div id="num'+i+'" data-num="'+i+'" onclick="select_num(this)" class="nums">'+i+'</div>';
+	}
+	//CONSIGNA
+	shuffle(nums);
+	shuffle(palabras);
+	num_consigna=nums[0];
+	var text_consigna = '<div id="consigna" style="" class="bottomtext" data-color="'+palabras[0]+'" data-num="'+num_consigna+'">Toca el número '+num_consigna+' y el color '+palabras[0]+'</div>';
+	document.getElementById("container").innerHTML+= text_consigna;
+}
+
+function letra_fig(){
+	ejercicio=12;
+	set_time(7000);
+	letraselect = "";
+	figselect = "";
+	// DRAW FIG
+	var colorstyle = [
+		"filter: hue-rotate(0deg)",/*Rojo*/
+		"filter: hue-rotate(120deg)", /* Verde*/ 
+		"filter: hue-rotate(225deg)", /*Azul*/
+		"filter: hue-rotate(50deg) brightness(500%)", /*Amarillo*/
+		"filter: brightness(0%) invert(100%)"]; /*White*/
+
+	var figuras = ["Triangulo","Cuadrado","Circulo","Cruz","Estrella"];
+	var i;
+	var text_fig = "";
+	var color;
+	var figura;
+
+	shuffle(colorstyle);
+	shuffle(figuras);
+	var fig_consigna=figuras[0];
+	shuffle(figuras);
+	text_fig+='<div id="fig0" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig1" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig2" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig3" class="figcontainer ff"></div>';
+	text_fig+='<div id="fig4" class="figcontainer ff"></div>';
+	document.getElementById("container").innerHTML=text_fig;
+	for (i = 0; i < 5; i++) {
+		color = colorstyle.pop();
+		figura = figuras.pop();
+	 	document.getElementById("fig"+i).innerHTML = '<div id="'+figura+'" onclick="select_figura(this)" class="figuras" style="'+color+'"></div>';
+	}
+	//DRAW LETRAS
+	var vocals = ["a","e","i","o","u"];
+	var text_lts = "";
+	for (i = 0; i < 5; i++) {
+		text_lts += '<div class="cl_opt l_opt" data-letra="'+vocals[i]+'" onclick="select_letra(this)">'+vocals[i]+'</div>';
+	}
+	//CONSIGNA
+	shuffle(vocals);
+	var text_consigna = '<div id="consigna" class="bottomtext" data-letra="'+vocals[0]+'" data-fig="'+fig_consigna+'">Toca la letra "'+vocals[0]+'" y la fig. '+fig_consigna+'</div>';
+	document.getElementById("container").innerHTML+=text_lts+text_consigna;
+}
+function flecha_num(){
+	ejercicio=13;
+	set_time(7000);
+	flechaselect = "";
+	numselect = "";
+	//DRAW FLECHAS
+	var degs = [0,90,180,270,315];
+	shuffle(degs);
+	var deg_consigna=degs[0];
+	shuffle(degs);
+	var flecha_consigna;
+	if (deg_consigna==0)   flecha_consigna="la derecha";
+	if (deg_consigna==90)  flecha_consigna="abajo";
+	if (deg_consigna==180) flecha_consigna="la izquierda";
+	if (deg_consigna==270) flecha_consigna="arriba";
+	if (deg_consigna==315) flecha_consigna="la diagonal derecha";
+	var text_flecha="";
+	for (i = 0; i < 5; i++) {
+		text_flecha += '<div class="fc" onclick="select_flecha(this)" data-deg="'+degs[i]+'" style="transform:rotate('+degs[i]+'deg)"><div class="flecha"></div></div>';
+	}
+	document.getElementById("container").innerHTML=text_flecha;
+	//DRAW NUM
+	var text_num="";
+	var nums=[]
+	for (i = 0; i < 10; i++) {
+		nums[i]=i;
+		document.getElementById("container").innerHTML += '<div id="num'+i+'" data-num="'+i+'" onclick="select_num(this)" class="nums nblue">'+i+'</div>';
+	}
+	//CONSIGNA
+	shuffle(nums);
+	var text_consigna = '<div id="consigna" style="font-size:40px" class="bottomtext" data-num="'+nums[0]+'" data-deg="'+deg_consigna+'" data-cons="'+flecha_consigna+'">Toca la dirección hacia '+flecha_consigna+' y el número '+nums[0]+'</div>';
+	document.getElementById("container").innerHTML+= text_consigna;
+}
+
+function num_letra(){
+	ejercicio=14;
+	set_time(7000);
+	letraselect = "";
+	numselect = "";
+	//DRAW NUM
+	var text_num="";
+	var nums=[];
+	var i;
+	for (i = 0; i < 10; i++) {
+		nums[i]=i;
+		text_num += '<div id="num'+i+'" data-num="'+i+'" onclick="select_num(this)" class="nums nblue">'+i+'</div>';
+	}
+	//DRAW LETRA
+	var vocals = ["a","e","i","o","u"];
+	var text_lts = "";
+	for (i = 0; i < 5; i++) {
+		text_lts += '<div class="cl_opt l_opt" data-letra="'+vocals[i]+'" onclick="select_letra(this)">'+vocals[i]+'</div>';
+	}
+	//CONSIGNA
+	shuffle(nums);
+	shuffle(vocals);
+	var text_consigna = '<div id="consigna" style="font-size:40px" class="bottomtext" data-num="'+nums[0]+'" data-letra="'+vocals[0]+'">Toca la letra "'+vocals[0]+'" y el número '+nums[0]+'</div>';
+	document.getElementById("container").innerHTML= text_num+text_lts+text_consigna;
+}
+function color_fig_num(){
+	ejercicio=15;
+	set_time(10000);
+	colorselect = "";
+	figselect = "";
+	numselect = "";
+	//DRAW COLORS (SPECIAL)
+	var colors = ["Red","Yellow","Green","Orange","Blue"];
+	var palabras = ["Rojo","Amarillo","Verde","Naranja","Azul"];
+	var text_cls = "";
+	for (i = 0; i < 5; i++) {
+	 	text_cls += '<div class="cl_opt c_opt brick" data-color="'+palabras[i]+'" style="background-color:'+colors[i]+'" onclick="select_color(this)"></div>';
+	}
+	document.getElementById("container").innerHTML=text_cls;
+	//DRAW FIGS
+	var colorstyle = [
+		"filter: hue-rotate(0deg)",/*Rojo*/
+		"filter: hue-rotate(120deg)", /* Verde*/ 
+		"filter: hue-rotate(225deg)", /*Azul*/
+		"filter: hue-rotate(50deg) brightness(500%)", /*Amarillo*/
+		"filter: brightness(0%) invert(100%)"]; /*Blanco*/
+	var figuras = ["Triangulo","Cuadrado","Circulo","Cruz","Estrella"];
+	var i;
+	var text_fig = "";
+	var color;
+	var figura;
+	shuffle(colorstyle);
+	shuffle(figuras);
+	var fig_consigna=figuras[0];
+	shuffle(figuras);
+	text_fig+='<div id="fig0" class="figcontainer mtopzero"></div>';
+	text_fig+='<div id="fig1" class="figcontainer mtopzero"></div>';
+	text_fig+='<div id="fig2" class="figcontainer mtopzero"></div>';
+	text_fig+='<div id="fig3" class="figcontainer mtopzero"></div>';
+	text_fig+='<div id="fig4" class="figcontainer mtopzero"></div>';
+	document.getElementById("container").innerHTML+=text_fig;
+	for (i = 0; i < 5; i++) {
+		color = colorstyle.pop();
+		figura = figuras.pop();
+	 	document.getElementById("fig"+i).innerHTML = '<div id="'+figura+'" onclick="select_figura(this)" class="figuras" style="'+color+'"></div>';
+	}
+	//DRAW NUM
+	var text_num="";
+	var nums=[];
+	var i;
+	for (i = 0; i < 10; i++) {
+		nums[i]=i;
+		text_num += '<div id="num'+i+'" data-num="'+i+'" onclick="select_num(this)" class="nums mtopzero">'+i+'</div>';
+	}
+	document.getElementById("container").innerHTML+=text_num;
+	//CONSIGNA
+	shuffle(nums);
+	shuffle(palabras);
+	var text_consigna = '<div id="consigna" style="" class="bottomtext" data-fig="'+fig_consigna+'" data-num="'+nums[0]+'" data-color="'+palabras[0]+'">Toca el color '+palabras[0]+', la fig. '+fig_consigna+' y el número '+nums[0] +'</div>';
+
+	document.getElementById("container").innerHTML+= text_consigna;
+}
+function letra_fig_flecha(){
+	ejercicio=16;
+	set_time(10000);
+	flechaselect = "";
+	figselect = "";
+	letraselect="";
+	//DRAW LETRA
+	var vocals = ["a","e","i","o","u"];
+	var text_lts = "";
+	for (i = 0; i < 5; i++) {
+		text_lts += '<div class="cl_opt l_opt mbzero mtopzero" data-letra="'+vocals[i]+'" onclick="select_letra(this)">'+vocals[i]+'</div>';
+	}
+	document.getElementById("container").innerHTML= text_lts;
+	//DRAW FIG
+	var colorstyle = [
+		"filter: hue-rotate(0deg)",/*Rojo*/
+		"filter: hue-rotate(120deg)", /* Verde*/ 
+		"filter: hue-rotate(225deg)", /*Azul*/
+		"filter: hue-rotate(50deg) brightness(500%)", /*Amarillo*/
+		"filter: brightness(0%) invert(100%)"]; /*Blanco*/
+	var figuras = ["Triangulo","Cuadrado","Circulo","Cruz","Estrella"];
+	var i;
+	var text_fig = "";
+	var color;
+	var figura;
+	shuffle(colorstyle);
+	shuffle(figuras);
+	var fig_consigna = figuras[0];
+	shuffle(figuras);
+	text_fig+='<div id="fig0" class="figcontainer mtopzero"></div>';
+	text_fig+='<div id="fig1" class="figcontainer mtopzero"></div>';
+	text_fig+='<div id="fig2" class="figcontainer mtopzero"></div>';
+	text_fig+='<div id="fig3" class="figcontainer mtopzero"></div>';
+	text_fig+='<div id="fig4" class="figcontainer mtopzero"></div>';
+	document.getElementById("container").innerHTML+=text_fig;
+	for (i = 0; i < 5; i++) {
+		color = colorstyle.pop();
+		figura = figuras.pop();
+	 	document.getElementById("fig"+i).innerHTML = '<div id="'+figura+'" onclick="select_figura(this)" class="figuras" style="'+color+'"></div>';
+	}
+	//DRAW FLECHAS
+	var degs = [0,90,180,270,315];
+	shuffle(degs);
+	var deg_consigna=degs[0];
+	shuffle(degs);
+	var flecha_consigna;
+	if (deg_consigna==0)   flecha_consigna="la derecha";
+	if (deg_consigna==90)  flecha_consigna="abajo";
+	if (deg_consigna==180) flecha_consigna="la izquierda";
+	if (deg_consigna==270) flecha_consigna="arriba";
+	if (deg_consigna==315) flecha_consigna="la diagonal derecha";
+	var text_flecha="";
+	for (i = 0; i < 5; i++) {
+		text_flecha += '<div class="fc fixflechas" onclick="select_flecha(this)" data-deg="'+degs[i]+'" style="transform:rotate('+degs[i]+'deg)"><div class="flecha"></div></div>';
+	}
+	document.getElementById("container").innerHTML+=text_flecha;
+	//CONSIGNA
+	shuffle(vocals);
+	var text_consigna = '<div id="consigna" style="font-size:40px" class="bottomtext mtopzero" data-fig="'+fig_consigna+'" data-deg="'+deg_consigna+'" data-cons="'+flecha_consigna+'" data-letra="'+vocals[0]+'">Toca la letra "'+vocals[0]+'", la dirección hacia '+flecha_consigna+' y la fig. '+fig_consigna+'</div>';
+
+	document.getElementById("container").innerHTML+= text_consigna;
+}
+
+
+
+
+//===================== EJERCICIO 17 =====================
+//- Fuera del estandar:
+// Global vars and functions out of place
+
+var palabra_iluminada = -1;
+var color_iluminado = "";
+
+function palabras_colores(){
+	ejercicio=17;
+	palabra_iluminada = -1;
+	color_iluminado = "";
+	var text="";
+	var palabras = ["ROJO","AZUL","VERDE","BLANCO","AMARILLO","MORADO","NARANJA"];
+	var colors = ["Red","Yellow","Green","Orange","Blue","Purple","White"];
+	//DRAW BTNS
+	var text_btns = "";
+	for (i = 0; i < 7; i++) {
+	 	text_btns += '<div class="boton_color" data-color="'+colors[i]+'" style="background-color:'+colors[i]+'" onclick="check_17(this)"></div>';
+	}
+	//DRAW PALABRAS
+	shuffle(palabras);
+	shuffle(colors);
+	j=0;
+	for (i = 0; i < 18; i++){
+		text+='<div id="palabra'+i+'" class="palabraholder" data-color="'+colors[j]+'" style="color:'+colors[j]+'">'+palabras[j]+'</div>';
+		j+=1;
+		if(j>6){
+			j=0;
+			shuffle(colors);
+		}
+	}
+	//CONSIGNA
+	var text_consigna='<div id="consigna" class="bottomtext mtopzero" data-color="'+palabras[0]+'"> Toca el color de la palabra marcada </div>';
+	document.getElementById("container").innerHTML=text+text_consigna+text_btns;
+
+	enlight();
+}
+function enlight(){
+	set_time(3000);
+	palabra_iluminada+=1;
+	if(palabra_iluminada==0){
+		document.getElementById("palabra"+palabra_iluminada).classList.add("enlighted");
+	}else{
+		otra_palabra=palabra_iluminada-1;
+		document.getElementById("palabra"+otra_palabra).classList.remove("enlighted");
+		document.getElementById("palabra"+palabra_iluminada).classList.add("enlighted");
+	}
+	color_iluminado = document.getElementById("palabra"+palabra_iluminada).getAttribute("data-color");
+}
+function check_17(btn){
+	reset_time();
+	tries+=1;
+	if (btn.getAttribute("data-color")==color_iluminado) {
+		wins+=1;
+	}
+	check();
+}
+
+//=====================  FIN 17  =====================//
+
+//-
+//-
+//-
+
+//===================== EJERCICIO 18 =====================
+//- Fuera del estandar:
+// Global vars and functions out of place
+
+var letras = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var indice_letra = -1;
+var manos = ["LA MANO DERECHA", "LA MANO IZQUIERDA", "AMBAS MANOS"];
+
+function letras_manos(){
+	ejercicio=18;
+	set_time_18(3000);
+	var text="";
+	
+	indice_letra+=1;
+	shuffle(manos);
+
+	//DRAW LETRAS Y CONSIGNA
+	text+='<div class="bottomtext">Diga en voz alta la letra:</div>';
+	text+='<div id="letra'+i+'" class="bottomtext big_letra"  style="color:red">'+letras[indice_letra]+'</div>';
+	text+='<div class="bottomtext">y levante:<br> <b style="color:green">'+manos[0]+'</b></div>';	
+
+	document.getElementById("container").innerHTML=text;
+}
+
+function set_time_18(time){
+	check_time = setTimeout(function(){ 
+		//alert("Tiempo Completado");
+		tries+=1;
+		if(tries < MaxTries[ejercicio]){
+			reset();
+		}else{
+			results_18();
+		}
+	 }, time);
+}
+
+function results_18(){
+	text="";
+	text += '<div class="result_element title">Ejercicio Completado</div>';
+	text += '<div class="result_element">Total de ejercicios: '+tries+'</div>';
+	document.getElementById("container").innerHTML = text;
+	tries=0;
+	wins=0;
+}
+//=====================  FIN 18  =====================//
+
+
+
+
+
+//===================== EJERCICIO 19 =====================
+//- Fuera del estandar:
+// Global vars and functions out of place
+
+//var letras = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+//var indice_letra = -1;
+var numdir = ["0", "1", "2"]; 
+var manopie = ["mano.JPG", "pie.JPG"];
+function lnpm(){ //letras_numeros_pies_y_manos
+	ejercicio=19;
+	set_time_18(7000);
+	var text="";
+	
+	indice_letra+=1;
+	shuffle(numdir);
+	shuffle(manopie);
+	//DRAW LETRAS Y CONSIGNA
+
+	text+= '<div style="overflow: hidden; width:800px;height:200px;margin-left:300px; margin-top:50px;">';
+	text+= '<div style="margin:0 20px; float:left; color:red" class="textout big_letra" >'+letras[indice_letra]+'</div>';
+	text+= '<img style="margin:0 20px; float:left; width:200px; height:210px;" src="src/'+manopie[0]+'"></img>';
+	text+= '<div style="margin:0 20px; float:left; color:blue" class="textout big_letra" >'+numdir[0]+'</div>';
+	text+= '</div>';
+
+
+	text+='<div class="bottomtext">Diga en voz alta la letra</div>';
+	//text+='<div id="letra'+i+'" class="bottomtext big_letra"  style="color:">'+letras[indice_letra]+'</div>';
+	text+='<div style="font-size:40px; color:#090" class="bottomtext" >Levante Mano o Pie según la imagen<br></div>';	
+	text+='<div style="font-size:40px;" class="bottomtext">Si es 0: AMBAS<br>Si 1: La DERECHA<br>Si es 2: La IZQUIERDA<BR></div>';	
+	
+	
+	document.getElementById("container").innerHTML=text;
+}
+
+//=====================  FIN 19  =====================//
+
+
+
+
+
+//===================== EJERCICIO 20  =====================//
+var palabraselect20 ="";
+var imagenselect20 = "";
+var wins20 = 0;
+function imagen_palabra20(){ //dibujar 20
+	ejercicio=20;
+	set_time_20(60000); //60 segundos para hacer todo
+	var text="";
+	
+	var imgs20 = ["Mariposa","Mano","Lápiz","Lámpara","Mesa","Ojo","Olla","Casa","Caballo","Sandwich","Libro","Limón","Luna","Oreja"]; //ejercicio 20 (14 imágenes)
+
+	shuffle(imgs20);
+
+	//DRAW
+	text+= '<div style="width:1200px;height:350px; margin-left:5px; margin-top:5px;">';
+	for (var i = imgs20.length - 1; i >= 0; i--) {
+		text+= '<div style="margin:0 0 40px 0;padding:0;float:left; width:170px; height:200px;">';
+		text+= '<img data-palabra="'+imgs20[i]+'" class="imgs20" onclick="select_imagen(this)" src="src/'+imgs20[i]+'.JPG"></img>';
+		text+= '<div id="i'+imgs20[i]+'" class="text_boxes20" style="float:left; width:170px; height:30px;"></div>';
+		text+= '</div>';
+	}
+	text+= '</div>';
+	shuffle(imgs20);
+
+	text+='<div style="font-size:40px; margin-top:10px" class="bottomtext">Toca la palabra y después la imagen correspondiente</div>';
+
+	text+= '<div style="float:left;width:1200px;height:350px; margin-left:5px; margin-top:40px; margin-bottom:40px">';
+	for (var i = imgs20.length - 1; i >= 0; i--) {
+		text+= '<div style="margin:0 0 40px 0;padding:0;float:left; width:170px; height:40px;">';
+		text+= '<div id="p'+imgs20[i]+'" data-palabra="'+imgs20[i]+'" class="text_boxes20" onclick="select_palabra(this)">'+imgs20[i]+'</div>';
+		text+= '<div style="float:left; width:170px; height:30px;"></div>';
+		text+= '</div>';
+	}
+	text+= '</div>';
+
+	document.getElementById("container").innerHTML=text;
+}
+
+function select_palabra(element){
+	var elements = document.getElementsByClassName('text_boxes20');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+	palabraselect20=element.getAttribute("data-palabra");
+
+}
+function select_imagen(element) {
+	imagenselect20=element.getAttribute("data-palabra");	
+	if(ejercicio==20 & palabraselect20!=""){
+		if(imagenselect20==palabraselect20){
+			document.getElementById("i"+palabraselect20).innerHTML = palabraselect20;
+			document.getElementById("p"+palabraselect20).innerHTML = "";
+			document.getElementById("p"+palabraselect20).remove("selected");
+			wins20+=1;
+		}
+	}
+}
+function set_time_20(time){
+	check_time = setTimeout(function(){ 
+		results_20();	
+	 }, time);
+}
+
+function results_20(){
+	text="";
+	text += '<div class="result_element title">Tus resultados</div>';
+	text += '<div class="result_element">Respuestas correctas: '+wins20+'</div>';
+	text += '<div class="result_element">Total de ejercicios: 14</div>';
+	document.getElementById("container").innerHTML = text;
+	tries=0;
+	wins=0;
+}
+
+//=====================  FIN 20  =====================//
+
+
+
+// SELECT FUNCTIONS, they will trigger check functions
+function select_color(element){
+	var elements = document.getElementsByClassName('c_opt');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+	colorselect=element.getAttribute("data-color");
+	if(ejercicio==7 & letraselect!=""){
+		check_cl();
+	}else if(ejercicio==10 & flechaselect!=""){
+		check_fc();
+	}else if(ejercicio==11 & numselect!=""){
+		check_cn();
+	}else if(ejercicio==15 & figselect!="" & numselect!=""){
+		check_cfn();
+	}
+}
+function select_letra(element){
+	var elements = document.getElementsByClassName('l_opt');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+	letraselect=element.getAttribute("data-letra");
+	if(ejercicio==7 & colorselect!=""){
+		check_cl();
+	}else if(ejercicio==12 & figselect!=""){
+		check_lf();
+	}else if(ejercicio==14 & numselect!=""){
+		check_nl();
+	}else if(ejercicio==16 & figselect!="" & flechaselect!=""){
+		check_lff();
+	}
+}
+function select_num(element){
+	var elements = document.getElementsByClassName('nums');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    numselect = element.getAttribute("data-num");
+    if(ejercicio==9 & figselect!=""){
+    	check_fn();
+    }else if(ejercicio==11 & colorselect!=""){
+    	check_cn();
+    }else if(ejercicio==13 & flechaselect!=""){
+    	check_nf();
+    }else if(ejercicio==14 & letraselect!=""){
+    	check_nl();
+    }else if(ejercicio==15 & colorselect!="" & figselect!=""){
+    	check_cfn();
+    }
+}
+function select_figura(element){
+	var elements = document.getElementsByClassName('figcontainer');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("selected");
+    }
+    element.parentNode.classList.add("selected");
+    figselect = element.id;
+    if(ejercicio==8 & flechaselect!=""){
+    	check_ff();
+    }else if(ejercicio==9 & numselect!=""){
+    	check_fn();
+    }else if(ejercicio==12 & letraselect!=""){
+    	check_lf();
+    }else if(ejercicio==15 & colorselect!="" & numselect!=""){
+    	check_cfn();
+    }else if(ejercicio==16 & letraselect!="" & flechaselect!=""){
+    	check_lff();
+    }
+}
+function select_flecha(element){
+	var elements = document.getElementsByClassName('fc');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    flechaselect = element.getAttribute("data-deg");
+    if(ejercicio==8 & figselect!=""){
+    	check_ff();
+    }else if(ejercicio==10 & colorselect!=""){
+    	check_fc();
+    }else if(ejercicio==13 & numselect!=""){
+    	check_nf();
+    }else if(ejercicio==16 & figselect!="" & letraselect!=""){
+    	check_lff();
+    }
+}
+
+// SPECIFIC CHECK FUNCTIONS
+function checkcolor(element){
+	reset_time();
+	var color = document.getElementById("consigna").title;
+	tries+=1;
+	if(element.id==color){
+		wins+=1;
+	}
+	check();
+}
+function checkletras(element){ //************** NO TERMINADO *****************
+	if (element.id=="a" | element.id=="e" |element.id=="i" |element.id=="o" |element.id=="u"){
+		document.getElementById("resultado").innerHTML+=" "+element.id;
+	}else{
+		//document.getElementById("resultado").innerHTML;
+	}
+}
+function checkfigura(element){
+	reset_time();
+	tries+=1;
+	if(document.getElementById("consigna").title == element.id){
+		wins+=1;
+	}
+	check();
+}
+function checkflechas(element){
+	reset_time();
+	tries+=1;
+	if (document.getElementById("flechacontainer").title==element.id) {
+		wins+=1;
+	}
+	check();
+}
+function check_palabra(boton){
+	reset_time();
+	tries += 1;
+	if(boton.getAttribute('data-color')==document.getElementById('palabra').getAttribute('data-color')){		
+		wins+=1;
+	}
+	check();
+}
+function checknumb(element){
+	reset_time();
+	tries+=1;
+	var par = document.getElementById("palabra").getAttribute("data-num")%2;
+	if( (par==0 & element.id=="par")|(par!=0 & element.id=="impar") ){
+		wins+=1;		
+	}
+	check();
+}
+function check_cl(){
+	reset_time();
+	tries+=1;
+	var consigna_letra = document.getElementById("consigna").getAttribute("data-letra");
+	var consigna_color = document.getElementById("consigna").getAttribute("data-color");
+	if(consigna_letra == letraselect & consigna_color == colorselect){
+		wins+=1;
+	}
+	check();
+}
+function check_ff(){
+	reset_time();
+	tries+=1;
+	var flecha_consigna = document.getElementById("consigna").getAttribute("data-deg");
+	var fig_consigna = document.getElementById("consigna").getAttribute("data-fig");
+	if(flechaselect==flecha_consigna & fig_consigna==figselect){
+		wins+=1;
+	}
+	check();
+}
+function check_fn(){
+	reset_time();
+	tries+=1;
+	var num_consigna = document.getElementById("consigna").getAttribute("data-num");
+	var fig_consigna = document.getElementById("consigna").getAttribute("data-fig");
+	if(numselect==num_consigna & fig_consigna==figselect){
+		wins+=1;
+	}
+	check();
+}
+function check_fc(){
+	reset_time();
+	tries+=1;
+	var flecha_consigna = document.getElementById("consigna").getAttribute("data-deg");
+	var color_consigna = document.getElementById("consigna").getAttribute("data-color");
+	if(flecha_consigna==flechaselect & color_consigna==colorselect){
+		wins+=1;
+	}
+	check();
+}
+function check_cn(){
+	reset_time();
+	tries+=1;
+	var num_consigna = document.getElementById("consigna").getAttribute("data-num");
+	var color_consigna = document.getElementById("consigna").getAttribute("data-color");
+	if(num_consigna==numselect & color_consigna==colorselect){
+		wins+=1;
+	}
+	check();
+}
+function check_lf(){
+	reset_time();
+	tries+=1;
+	var letra_consigna = document.getElementById("consigna").getAttribute("data-letra");
+	var fig_consigna = document.getElementById("consigna").getAttribute("data-fig");
+	if(letra_consigna==letraselect & fig_consigna==figselect){
+		wins+=1;
+	}
+	check();
+}
+function check_nf(){ //num flecha
+	console.log("CHECK NF");
+	reset_time();
+	tries+=1;
+	console.log("tries: "+tries);
+	var num_consigna = document.getElementById("consigna").getAttribute("data-num");
+	var flecha_consigna = document.getElementById("consigna").getAttribute("data-deg");
+	console.log("num consigna: "+num_consigna);
+	console.log("flecha consigna: "+flecha_consigna);
+	if(num_consigna==numselect & flecha_consigna==flechaselect){
+		wins+=1;
+		console.log("wins: "+wins);
+	}
+	check();
+}
+function check_nl(){ //num flecha
+	reset_time();
+	tries+=1;
+	var num_consigna = document.getElementById("consigna").getAttribute("data-num");
+	var letra_consigna = document.getElementById("consigna").getAttribute("data-letra");
+	if(num_consigna==numselect & letra_consigna==letraselect){
+		wins+=1;
+	}
+	check();
+}
+function check_cfn(){ // color fig num
+	reset_time();
+	tries+=1;
+	var num_consigna = document.getElementById("consigna").getAttribute("data-num");
+	var color_consigna = document.getElementById("consigna").getAttribute("data-color");
+	var fig_consigna = document.getElementById("consigna").getAttribute("data-fig");
+	if(num_consigna==numselect & fig_consigna==figselect & color_consigna==colorselect){
+		wins+=1;
+	}
+	check();
+}
+function check_lff(){ // letra fig flecha
+	reset_time();
+	tries+=1;
+	var letra_consigna = document.getElementById("consigna").getAttribute("data-letra");
+	var flecha_consigna = document.getElementById("consigna").getAttribute("data-deg");
+	var fig_consigna = document.getElementById("consigna").getAttribute("data-fig");
+	if(letra_consigna==letraselect & fig_consigna==figselect & flecha_consigna==flechaselect){
+		wins+=1;
+	}
+	check();
+}
+// GENERAL CONTROL FUNCTIONS
+function results(){
+	text="";
+    ////////////////paola patch////////////////
+  juego=ejercicio;
+  if(ejercicio>=3 & ejercicio<=13){ juego=ejercicio-1;}
+  if(ejercicio>13){ juego=ejercicio-2;}
+	text += '<div class="result_element title">Tus resultados <br><p style="font-size:50px; margin:0">Juego '+juego+'</p></div>';
+  /*text += '<div class="result_element" style="font-size:20px; margin:0">Juego '+juego+'</div>';*/
+  //////////////////////////////////////////////
+	text += '<div class="result_element">Correctas: '+wins+'</div>';
+	text += '<div class="result_element">Totales: '+tries+'</div>';
+	document.getElementById("container").innerHTML = text;
+	tries=0;
+	wins=0;
+}
+function check(){
+	if(tries<MaxTries[ejercicio]){
+		reset();
+	}else{
+		results();
+	}
+}
+function set_time(time){
+	check_time = setTimeout(function(){ 
+		//alert("Tiempo Completado");
+		tries+=1;
+		if(tries < MaxTries[ejercicio]){
+			reset();
+		}else{
+			results();
+		}
+	 }, time);
+}
+function reset_time(){
+	clearTimeout(check_time);
+}
+function reset(){
+	//console.log(ejercicio);
+	switch (ejercicio) {
+	  case 1:
+	    colors();
+	    break;
+	  case 2:
+	    letras_2();
+	    break;
+	  case 3:
+	    figuras();
+	    break;
+	  case 4:
+	    flechas();
+	    break;
+	  case 5:
+	  	palabra();
+	    break;
+	  case 6:
+	  	numb();
+	    break;
+	  case 7:
+	  	letra_color();
+	    break;
+	  case 8:
+	  	fig_flecha();
+	    break;
+	  case 9:
+	  	num_fig();
+	    break;
+	  case 10:
+	  	flecha_color();
+	    break;
+	  case 11:
+	  	color_num();
+	  	break;
+	  case 12:
+	  	letra_fig();
+	  	break;
+	  case 13:
+	  	flecha_num();
+	  	break;
+	  case 14:
+	  	num_letra();
+	  	break;
+	  case 15:
+	  	color_fig_num();
+	  	break;
+	  case 16:
+	  	letra_fig_flecha();
+	  	break;
+	  case 17:
+	 	enlight();
+	  	break;
+	  case 18:
+	  	letras_manos();
+	  	break;
+	  case 19:
+	  	lnpm();
+	  	break;
+	  case 20:
+	  	//letra_fig_flecha();
+	  	break;
+	  default:
+	    console.log('error: invalid game');
+	}
+
+}
+</script>
+
+<div id="inst"></div>
+
+
+<div id="btn_pao">
+<a href="index.html" class="container" style="text-decoration: none;">
+  <div class="btn">  INICIO </div></a>
+</div>
+
+<!--div id="btn_pao" style="right:20px;">
+ <a href="javascript: window.close()" class="container" style="text-decoration: none;">
+  <div class="btn">  CERRAR </div></a> 
+</div-->
+
+
+<div id="container">
+	
+	<div id="screen"></div>
+
+	<div onclick="colors()" class="game_ico">1</div>
+	<div onclick="figuras()" class="game_ico">2</div>
+	<div onclick="flechas()" class="game_ico">3</div>
+	<div onclick="palabra()" class="game_ico">4</div>
+	<div onclick="numb()" class="game_ico">5</div>
+	<div onclick="letra_color()" class="game_ico">6</div>
+	<div onclick="fig_flecha()" class="game_ico">7</div>
+	<div onclick="num_fig()" class="game_ico">8</div>
+	<div onclick="flecha_color()" class="game_ico">9</div>
+	<div onclick="color_num()" class="game_ico">10</div>
+  <div style="width:300px; height: 100px; float: left"></div>
+	<div onclick="letra_fig()" class="game_ico">11</div>
+	<div onclick="flecha_num()" class="game_ico">12</div>
+	<div onclick="color_fig_num()" class="game_ico">13</div>
+	<div onclick="letra_fig_flecha()" class="game_ico">14</div>
+	<div onclick="palabras_colores()" class="game_ico">15</div>
+
+</div>
+
+<!--button onclick="colors()">Colores!</button>
+<button onclick="letras()">Letras!</button>
+<button onclick="figuras()">Figuras!</button>
+<button onclick="flechas()">Flechas!</button>
+
+<button onclick="palabra()">Palabra!</button>
+<button onclick="numb()">Numeros!</button>
+
+<button onclick="letra_color()">Letras y colores!</button>
+<button onclick="fig_flecha()">Figuras y flechas!</button>
+<button onclick="num_fig()">Numeros y figuras!</button-->
+
+
+
+<script type="text/javascript">
+	
+// Other functions
+var shuffle = function (array) {
+	var currentIndex = array.length;
+	var temporaryValue, randomIndex;
+	while (0 !== currentIndex) {
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+		// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+	return array;
+};
+</script>
+
+</body>
+
+
+
+
+</html>
